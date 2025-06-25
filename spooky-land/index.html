@@ -9,7 +9,23 @@
     <title>
         Moto X3M Spooky Land
     </title>
-    
+    <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #content {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,10 +44,33 @@
     <script type="text/javascript" src="assets/lib/phaser-super-storage.min.js"></script>
     <script type="text/javascript" src="assets/lib/dragonBones.min.js"></script>
     <script type="text/javascript">
-            
+           
     </script>
-
     
-<script type="text/javascript" src="motox3m6.min.js?08b6509b4ffce360d4dd"></script></body>
+<script type="text/javascript" src="motox3m6.min.js?08b6509b4ffce360d4dd"></script>
+
+ <script>
+    const canvas = document.getElementById('content');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      // Gán đúng kích thước vẽ theo thiết bị
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Vẽ test
+      ctx.fillStyle = "#444";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#fff";
+      ctx.font = "30px Arial";
+      ctx.fillText("Canvas Fullscreen", 50, 50);
+    }
+
+    // Đợi DOM ready rồi mới resize
+    window.addEventListener('load', resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
+  </script>
+
+</body>
 
 </html>
